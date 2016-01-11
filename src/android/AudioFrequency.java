@@ -34,6 +34,7 @@ public class AudioFrequency extends CordovaPlugin
             this.callbackContext = callbackContext;
 
             try {
+                Log.v("ConsoleLog", "args.getString() : "+args.getString(0));
                 receiver = new ToneReceiver(16384, args.getString(0));
                 receiver.setHandler(handler);
                 receiver.start();
