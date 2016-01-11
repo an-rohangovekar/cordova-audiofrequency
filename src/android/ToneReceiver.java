@@ -38,6 +38,8 @@ public class ToneReceiver extends Thread {
         }
         
         sampleRateInHz = Integer.parseInt(sample);
+        
+        Log.v("ConsoleLog", "sampleRateInHz : "+sampleRateInHz);
 
         // use the mic with Auto Gain Control turned off
         recorder = new AudioRecord(MediaRecorder.AudioSource.VOICE_RECOGNITION, sampleRateInHz, channelConfig, audioFormat, bufferSize);
