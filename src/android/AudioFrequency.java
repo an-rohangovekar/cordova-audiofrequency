@@ -67,11 +67,11 @@ public class AudioFrequency extends CordovaPlugin
         }
     }
 
-    /*public void onReset() {
-        if (!receiver.isInterrupted()) {
+    public void onReset() {
+       /* if (!receiver.isInterrupted()) {
             receiver.interrupt();
-        }
-    }*/
+        }*/
+    }
 
     /**
      * Create a new plugin result and send it back to JavaScript
