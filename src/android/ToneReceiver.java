@@ -34,6 +34,9 @@ public class ToneReceiver extends Thread {
     }
 
     public ToneReceiver(int bufferSizeInBytes, String sample) {
+        Log.v("ConsoleLog", "ToneReceiver constructor called");
+        Log.v("ConsoleLog", "sample : "+sample);
+        
         if (bufferSizeInBytes > bufferSize) {
             bufferSize = bufferSizeInBytes;
         }
