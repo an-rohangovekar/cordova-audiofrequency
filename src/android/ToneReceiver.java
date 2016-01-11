@@ -33,7 +33,7 @@ public class ToneReceiver extends Thread {
         recorder = new AudioRecord(MediaRecorder.AudioSource.VOICE_RECOGNITION, sampleRateInHz, channelConfig, audioFormat, bufferSize);
     }
 
-    public ToneReceiver(int bufferSizeInBytes, String sample) {
+    public ToneReceiver(int bufferSizeInBytes, string sample) {
         Log.v("ConsoleLog", "ToneReceiver constructor called");
         Log.v("ConsoleLog", "sample : "+sample);
         
