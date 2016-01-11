@@ -34,7 +34,7 @@ public class AudioFrequency extends CordovaPlugin
             this.callbackContext = callbackContext;
 
             try {
-                receiver = new ToneReceiver(16384);
+                receiver = new ToneReceiver(16384, args.getString(0));
                 receiver.setHandler(handler);
                 receiver.start();
             } catch (Exception e) {
@@ -66,11 +66,11 @@ public class AudioFrequency extends CordovaPlugin
         }
     }
 
-    public void onReset() {
+    /*public void onReset() {
         if (!receiver.isInterrupted()) {
             receiver.interrupt();
         }
-    }
+    }*/
 
     /**
      * Create a new plugin result and send it back to JavaScript
