@@ -1,6 +1,6 @@
 var cordova = require('cordova'),
-    exec = require('cordova/exec'), 
-    frequency = "16000";
+    exec = require('cordova/exec'); 
+var frequency = "16000";
 
 function handlers () {
     return audiofrequency.channels.audiofrequency.numHandlers;
