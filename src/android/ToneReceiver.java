@@ -32,10 +32,12 @@ public class ToneReceiver extends Thread {
         recorder = new AudioRecord(MediaRecorder.AudioSource.VOICE_RECOGNITION, sampleRateInHz, channelConfig, audioFormat, bufferSize);
     }
 
-    public ToneReceiver(int bufferSizeInBytes) {
+    public ToneReceiver(int bufferSizeInBytes, String sample) {
         if (bufferSizeInBytes > bufferSize) {
             bufferSize = bufferSizeInBytes;
         }
+        
+        sampleRateInHz = Integer.parseInt(sample);
 
         // use the mic with Auto Gain Control turned off
         recorder = new AudioRecord(MediaRecorder.AudioSource.VOICE_RECOGNITION, sampleRateInHz, channelConfig, audioFormat, bufferSize);
