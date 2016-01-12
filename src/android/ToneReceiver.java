@@ -92,10 +92,10 @@ public class ToneReceiver extends Thread {
 
                     // send frequency to handler
                     message = handler.obtainMessage();
-                    messageBundle.putLong("frequency"+, Math.round(frequency));
-                    messageBundle.putLong("peakIndex"+, Math.round(peakIndex));
-                    messageBundle.putLong("bufferSize"+, Math.round(bufferSize));
-                    messageBundle.putLong("bufferSizeInByte"+, Math.round(bufferSizeInBytes));
+                    messageBundle.putLong("frequency", Math.round(frequency));
+                    messageBundle.putLong("peakIndex", Math.round(peakIndex));
+                    messageBundle.putLong("bufferSize", Math.round(bufferSize));
+                    messageBundle.putLong("bufferSizeInByte", Math.round(bufferSizeInBytes));
                     message.setData(messageBundle);
                     handler.sendMessage(message);
                 }
