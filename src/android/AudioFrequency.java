@@ -34,7 +34,7 @@ public class AudioFrequency extends CordovaPlugin
             this.callbackContext = callbackContext;
 
             try {
-                receiver = new ToneReceiver(16384);
+                receiver = new ToneReceiver();//16384
                 receiver.setHandler(handler);
                 receiver.start();
             } catch (Exception e) {
