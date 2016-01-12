@@ -153,6 +153,6 @@ public class ToneReceiver extends Thread {
     }
 
     private double calculateFrequency(double index) {
-        return sampleRateInHz; // * index / bufferSize
+        return sampleRateInHz; // index / bufferSize;
     }
 }
