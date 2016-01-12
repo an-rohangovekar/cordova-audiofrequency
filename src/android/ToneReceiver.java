@@ -43,7 +43,7 @@ public class ToneReceiver extends Thread {
         
         sampleRateInHz = Integer.parseInt(sample);
         
-        Log.v("CordovaLog", "sampleRateInHz : "+sampleRateInHz);
+        //Log.v("CordovaLog", "sampleRateInHz : "+sampleRateInHz);
 
         // use the mic with Auto Gain Control turned off
         recorder = new AudioRecord(MediaRecorder.AudioSource.VOICE_RECOGNITION, sampleRateInHz, channelConfig, audioFormat, bufferSize);
