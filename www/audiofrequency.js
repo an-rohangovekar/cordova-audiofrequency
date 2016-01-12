@@ -1,6 +1,6 @@
 var cordova = require('cordova'),
     exec = require('cordova/exec'); 
-var frequency = "16000";
+//var frequency = "16000";
 
 function handlers () {
     return audiofrequency.channels.audiofrequency.numHandlers;
@@ -24,7 +24,7 @@ AudioFrequency.onHasSubscribersChange = function () {
   // If we just registered the first handler, make sure native listener is started.
   if (this.numHandlers === 1 && handlers() === 1) {
     
-      exec(audiofrequency._frequency, audiofrequency._error, "AudioFrequency", "start", [frequency]);
+      exec(audiofrequency._frequency, audiofrequency._error, "AudioFrequency", "start", []);
   } else if (handlers() === 0) {
       exec(null, null, "AudioFrequency", "stop", []);
   }
