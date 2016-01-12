@@ -20,8 +20,6 @@ public class ToneReceiver extends Thread {
 
     private int bufferSize = AudioRecord.getMinBufferSize(sampleRateInHz, channelConfig, audioFormat);
     
-    public int bufferSizeInBytes;
-
     private AudioRecord recorder;
 
     private Handler handler;
@@ -35,7 +33,7 @@ public class ToneReceiver extends Thread {
         recorder = new AudioRecord(MediaRecorder.AudioSource.VOICE_RECOGNITION, sampleRateInHz, channelConfig, audioFormat, bufferSize);
     }
 
-    public ToneReceiver(bufferSizeInBytes) {
+    public ToneReceiver(int bufferSizeInBytes) {
        if (bufferSizeInBytes > bufferSize) {
             bufferSize = bufferSizeInBytes;
         }
@@ -95,7 +93,7 @@ public class ToneReceiver extends Thread {
                     messageBundle.putLong("frequency", Math.round(frequency));
                     messageBundle.putLong("peakIndex", Math.round(peakIndex));
                     messageBundle.putLong("bufferSize", Math.round(bufferSize));
-                    messageBundle.putLong("bufferSizeInByte", Math.round(bufferSizeInBytes));
+                    
                     message.setData(messageBundle);
                     handler.sendMessage(message);
                 }
