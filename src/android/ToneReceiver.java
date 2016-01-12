@@ -34,17 +34,10 @@ public class ToneReceiver extends Thread {
     }
 
     public ToneReceiver(int bufferSizeInBytes, String sample) {
-       // Log.v("CordovaLog", "ToneReceiver constructor called");
-        //Log.v("CordovaLog", "sample : "+sample);
-        
-        if (bufferSizeInBytes > bufferSize) {
+       if (bufferSizeInBytes > bufferSize) {
             bufferSize = bufferSizeInBytes;
         }
-        
         sampleRateInHz = Integer.parseInt(sample);
-        
-        //Log.v("CordovaLog", "sampleRateInHz : "+sampleRateInHz);
-
         // use the mic with Auto Gain Control turned off
         recorder = new AudioRecord(MediaRecorder.AudioSource.VOICE_RECOGNITION, sampleRateInHz, channelConfig, audioFormat, bufferSize);
     }
@@ -160,6 +153,6 @@ public class ToneReceiver extends Thread {
     }
 
     private double calculateFrequency(double index) {
-        return sampleRateInHz * index / bufferSize;
+        return sampleRateInHz; // * index / bufferSize
     }
 }
