@@ -34,8 +34,8 @@ public class ToneReceiver extends Thread {
     }
 
     public ToneReceiver(int bufferSizeInBytes, String sample) {
-        Log.v("ConsoleLog", "ToneReceiver constructor called");
-        Log.v("ConsoleLog", "sample : "+sample);
+        Log.v("CordovaLog", "ToneReceiver constructor called");
+        Log.v("CordovaLog", "sample : "+sample);
         
         if (bufferSizeInBytes > bufferSize) {
             bufferSize = bufferSizeInBytes;
@@ -43,7 +43,7 @@ public class ToneReceiver extends Thread {
         
         sampleRateInHz = Integer.parseInt(sample);
         
-        Log.v("ConsoleLog", "sampleRateInHz : "+sampleRateInHz);
+        Log.v("CordovaLog", "sampleRateInHz : "+sampleRateInHz);
 
         // use the mic with Auto Gain Control turned off
         recorder = new AudioRecord(MediaRecorder.AudioSource.VOICE_RECOGNITION, sampleRateInHz, channelConfig, audioFormat, bufferSize);
