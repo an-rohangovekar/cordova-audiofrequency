@@ -12,13 +12,15 @@ import org.jtransforms.fft.DoubleFFT_1D;
 
 public class ToneReceiver extends Thread {
 
-    private int sampleRateInHz = 16000;//44100;
+    private int sampleRateInHz = 44100;
 
     private int channelConfig = AudioFormat.CHANNEL_IN_MONO;
 
     private int audioFormat = AudioFormat.ENCODING_PCM_16BIT;
 
     private int bufferSize = AudioRecord.getMinBufferSize(sampleRateInHz, channelConfig, audioFormat);
+    
+    public int bufferSizeInBytes;
 
     private AudioRecord recorder;
 
@@ -33,11 +35,11 @@ public class ToneReceiver extends Thread {
         recorder = new AudioRecord(MediaRecorder.AudioSource.VOICE_RECOGNITION, sampleRateInHz, channelConfig, audioFormat, bufferSize);
     }
 
-    public ToneReceiver(int bufferSizeInBytes, String sample) {
+    public ToneReceiver(bufferSizeInBytes) {
        if (bufferSizeInBytes > bufferSize) {
             bufferSize = bufferSizeInBytes;
         }
-        sampleRateInHz = Integer.parseInt(sample);
+        //sampleRateInHz = Integer.parseInt(sample);
         // use the mic with Auto Gain Control turned off
         recorder = new AudioRecord(MediaRecorder.AudioSource.VOICE_RECOGNITION, sampleRateInHz, channelConfig, audioFormat, bufferSize);
     }
@@ -90,7 +92,10 @@ public class ToneReceiver extends Thread {
 
                     // send frequency to handler
                     message = handler.obtainMessage();
-                    messageBundle.putLong("frequency", Math.round(frequency));
+                    messageBundle.putLong("frequency"+, Math.round(frequency));
+                    messageBundle.putLong("peakIndex"+, Math.round(peakIndex));
+                    messageBundle.putLong("bufferSize"+, Math.round(bufferSize));
+                    messageBundle.putLong("bufferSizeInByte"+, Math.round(bufferSizeInBytes));
                     message.setData(messageBundle);
                     handler.sendMessage(message);
                 }
@@ -153,6 +158,6 @@ public class ToneReceiver extends Thread {
     }
 
     private double calculateFrequency(double index) {
-        return sampleRateInHz; // index / bufferSize;
+        return sampleRateInHz * index / bufferSize;
     }
 }
