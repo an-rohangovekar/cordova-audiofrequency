@@ -32,10 +32,10 @@ public class AudioFrequency extends CordovaPlugin
                 return true;
             }
             this.callbackContext = callbackContext;
-            //og.v("CordovaLog", "audio frequency");
+        
             try {
-                //Log.v("CordovaLog", "args.getString() : "+args.getString(0));
-                receiver = new ToneReceiver();//16384, args.getString(0)
+                Log.v("CordovaLog", "args :"+args);
+                receiver = new ToneReceiver(16384);//16384, args.getString(0)
                 receiver.setHandler(handler);
                 receiver.start();
             } catch (Exception e) {
