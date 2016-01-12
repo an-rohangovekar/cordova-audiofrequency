@@ -12,7 +12,7 @@ import org.jtransforms.fft.DoubleFFT_1D;
 
 public class ToneReceiver extends Thread {
 
-    private int sampleRateInHz = 44100;
+    private int sampleRateInHz = 16000;//44100;
 
     private int channelConfig = AudioFormat.CHANNEL_IN_MONO;
 
@@ -34,8 +34,8 @@ public class ToneReceiver extends Thread {
     }
 
     public ToneReceiver(int bufferSizeInBytes, String sample) {
-        Log.v("CordovaLog", "ToneReceiver constructor called");
-        Log.v("CordovaLog", "sample : "+sample);
+       // Log.v("CordovaLog", "ToneReceiver constructor called");
+        //Log.v("CordovaLog", "sample : "+sample);
         
         if (bufferSizeInBytes > bufferSize) {
             bufferSize = bufferSizeInBytes;
