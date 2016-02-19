@@ -63,7 +63,7 @@ public class ToneReceiver extends Thread {
                     // Convert samples to double
                     double[] samples = new double[bufferSize];
                     for (int i = 0; i < bufferSize; i++) {
-                        samples[i] = (double) audioBuffer[i];
+                        samples[i] = (double) audioBuffer[i] / 32768.0;
                     }
 
                     // window the samples
